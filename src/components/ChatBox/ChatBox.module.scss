@@ -1,22 +1,22 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use '../../styles/_variables.scss' as vars;
+@use '../../styles/_mixins.scss' as mixins;
 
 .chatBox {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: $color-background-card;
+  background-color: vars.$color-background-card;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid $color-border;
+  border: 1px solid vars.$color-border;
 }
 
 .header {
   display: flex;
   align-items: center;
   padding: 0.75rem 1rem;
-  background-color: rgba($color-background-dark, 0.5);
-  border-bottom: 1px solid $color-border;
+  background-color: rgba(vars.$color-background-dark, 0.5);
+  border-bottom: 1px solid vars.$color-border;
   position: relative;
 }
 
@@ -24,7 +24,7 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: $color-text-primary;
+  color: vars.$color-text-primary;
   flex: 1;
 }
 
@@ -66,7 +66,7 @@
 .settingsButton {
   background: none;
   border: none;
-  color: $color-text-secondary;
+  color: vars.$color-text-secondary;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,8 +76,8 @@
   transition: all 0.2s;
   
   &:hover {
-    color: $color-text-primary;
-    background-color: rgba($color-background-light, 0.1);
+    color: vars.$color-text-primary;
+    background-color: rgba(vars.$color-background-light, 0.1);
   }
 }
 
@@ -86,7 +86,7 @@
   top: calc(100% + 5px);
   right: 0;
   width: 250px;
-  background-color: $color-background-card;
+  background-color: vars.$color-background-card;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 10;
@@ -102,22 +102,22 @@
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: $color-text-primary;
+  color: vars.$color-text-primary;
 }
 
 .settingsInput {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid $color-border;
+  border: 1px solid vars.$color-border;
   border-radius: 4px;
-  background-color: $color-background-input;
-  color: $color-text-primary;
+  background-color: vars.$color-background-input;
+  color: vars.$color-text-primary;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
   
   &:focus {
     outline: none;
-    border-color: $color-primary;
+    border-color: vars.$color-primary;
   }
 }
 
@@ -125,7 +125,7 @@
   display: block;
   width: 100%;
   padding: 0.5rem;
-  background-color: $color-primary;
+  background-color: vars.$color-primary;
   color: white;
   border: none;
   border-radius: 4px;
@@ -135,7 +135,7 @@
   transition: background-color 0.2s;
   
   &:hover {
-    background-color: darken($color-primary, 10%);
+    background-color: darken(vars.$color-primary, 10%);
   }
 }
 
@@ -159,11 +159,11 @@
   }
   
   &::-webkit-scrollbar-thumb {
-    background-color: rgba($color-text-secondary, 0.3);
+    background-color: rgba(vars.$color-text-secondary, 0.3);
     border-radius: 3px;
     
     &:hover {
-      background-color: rgba($color-text-secondary, 0.5);
+      background-color: rgba(vars.$color-text-secondary, 0.5);
     }
   }
 }
@@ -178,12 +178,12 @@
   
   &.userMessage {
     .message {
-      background-color: rgba($color-primary, 0.1);
-      border-left: 3px solid $color-primary;
+      background-color: rgba(vars.$color-primary, 0.1);
+      border-left: 3px solid vars.$color-primary;
     }
     
     .username.currentUser {
-      color: $color-primary;
+      color: vars.$color-primary;
     }
   }
 }
@@ -192,10 +192,10 @@
   display: flex;
   padding: 0.5rem;
   border-radius: 4px;
-  background-color: rgba($color-background-light, 0.1);
+  background-color: rgba(vars.$color-background-light, 0.1);
   
   &:hover {
-    background-color: rgba($color-background-light, 0.2);
+    background-color: rgba(vars.$color-background-light, 0.2);
   }
 }
 
@@ -224,7 +224,7 @@
 .username {
   font-weight: 600;
   font-size: 0.875rem;
-  color: $color-text-primary;
+  color: vars.$color-text-primary;
   margin-right: 0.5rem;
   
   &.streamer {
@@ -240,19 +240,19 @@
   }
   
   &.currentUser {
-    color: $color-primary;
+    color: vars.$color-primary;
   }
 }
 
 .timestamp {
   font-size: 0.75rem;
-  color: $color-text-secondary;
+  color: vars.$color-text-secondary;
 }
 
 .messageText {
   margin: 0;
   font-size: 0.875rem;
-  color: $color-text-primary;
+  color: vars.$color-text-primary;
   word-break: break-word;
   line-height: 1.4;
 }
@@ -261,29 +261,29 @@
   display: flex;
   align-items: center;
   padding: 0.75rem 1rem;
-  background-color: rgba($color-background-dark, 0.3);
-  border-top: 1px solid $color-border;
+  background-color: rgba(vars.$color-background-dark, 0.3);
+  border-top: 1px solid vars.$color-border;
 }
 
 .input {
   flex: 1;
   padding: 0.5rem 0.75rem;
-  border: 1px solid $color-border;
+  border: 1px solid vars.$color-border;
   border-radius: 4px;
-  background-color: $color-background-input;
-  color: $color-text-primary;
+  background-color: vars.$color-background-input;
+  color: vars.$color-text-primary;
   font-size: 0.875rem;
   
   &:focus {
     outline: none;
-    border-color: $color-primary;
+    border-color: vars.$color-primary;
   }
 }
 
 .emojiButton, .sendButton {
   background: none;
   border: none;
-  color: $color-text-secondary;
+  color: vars.$color-text-secondary;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -294,20 +294,20 @@
   transition: all 0.2s;
   
   &:hover {
-    color: $color-text-primary;
-    background-color: rgba($color-background-light, 0.1);
+    color: vars.$color-text-primary;
+    background-color: rgba(vars.$color-background-light, 0.1);
   }
   
   &:disabled {
-    color: rgba($color-text-secondary, 0.5);
+    color: rgba(vars.$color-text-secondary, 0.5);
     cursor: not-allowed;
   }
 }
 
 .sendButton {
-  color: $color-primary;
+  color: vars.$color-primary;
   
   &:hover {
-    color: darken($color-primary, 10%);
+    color: darken(vars.$color-primary, 10%);
   }
 } 

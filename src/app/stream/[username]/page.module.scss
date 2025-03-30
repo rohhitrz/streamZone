@@ -1,5 +1,5 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/mixins.scss';
+@use '../../../styles/_variables.scss' as vars;
+@use '../../../styles/_mixins.scss' as mixins;
 
 .streamPage {
   display: flex;
@@ -7,7 +7,7 @@
   width: 100%;
   height: calc(100vh - 60px);
   
-  @include lg {
+  @include mixins.lg {
     flex-direction: row;
   }
 }
@@ -20,12 +20,12 @@
   margin: 0;
   width: 100%;
   
-  @include lg {
+  @include mixins.lg {
     height: 100%;
     width: calc(100% - 350px);
   }
   
-  @include xl {
+  @include mixins.xl {
     width: calc(100% - 400px);
   }
 }
@@ -35,14 +35,14 @@
   height: 350px;
   background-color: var(--background-secondary);
   
-  @include lg {
+  @include mixins.lg {
     width: 350px;
     height: 100%;
     flex: 0 0 350px;
     border-left: 1px solid var(--background-tertiary);
   }
   
-  @include xl {
+  @include mixins.xl {
     width: 400px;
     flex: 0 0 400px;
   }
@@ -54,17 +54,17 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: $spacing-xl;
+  padding: vars.$spacing-xl;
   text-align: center;
   
   h1 {
-    font-size: $font-size-xxl;
+    font-size: vars.$font-size-xxl;
     color: var(--text-primary);
-    margin-bottom: $spacing-md;
+    margin-bottom: vars.$spacing-md;
   }
   
   p {
-    font-size: $font-size-md;
+    font-size: vars.$font-size-md;
     color: var(--text-secondary);
     max-width: 500px;
   }

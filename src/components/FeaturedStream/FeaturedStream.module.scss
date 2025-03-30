@@ -1,13 +1,13 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use '../../styles/_variables.scss' as vars;
+@use '../../styles/_mixins.scss' as mixins;
 
 .container {
   width: 100%;
-  border-radius: $border-radius-xl;
+  border-radius: vars.$border-radius-xl;
   overflow: hidden;
   background-color: var(--background-secondary);
-  margin-bottom: $spacing-lg;
-  box-shadow: $shadow-lg;
+  margin-bottom: vars.$spacing-lg;
+  box-shadow: vars.$shadow-lg;
 }
 
 .playerWrapper {
@@ -26,16 +26,16 @@
 
 .featuredBadge {
   position: absolute;
-  top: $spacing-md;
-  left: $spacing-md;
-  background: linear-gradient(90deg, $accent-purple 0%, $accent-blue 100%);
-  padding: $spacing-xs $spacing-sm;
-  border-radius: $border-radius-md;
+  top: vars.$spacing-md;
+  left: vars.$spacing-md;
+  background: linear-gradient(90deg, vars.$accent-purple 0%, vars.$accent-blue 100%);
+  padding: vars.$spacing-xs vars.$spacing-sm;
+  border-radius: vars.$border-radius-md;
   z-index: 1;
   
   span {
-    font-size: $font-size-sm;
-    font-weight: $font-weight-bold;
+    font-size: vars.$font-size-sm;
+    font-weight: vars.$font-weight-bold;
     color: white;
     text-transform: uppercase;
   }
@@ -43,45 +43,45 @@
 
 .liveInfo {
   position: absolute;
-  bottom: $spacing-md;
-  left: $spacing-md;
+  bottom: vars.$spacing-md;
+  left: vars.$spacing-md;
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: vars.$spacing-sm;
   z-index: 1;
 }
 
 .liveIndicator {
-  background-color: $accent-red;
-  padding: $spacing-xxs $spacing-xs;
-  border-radius: $border-radius-full;
+  background-color: vars.$accent-red;
+  padding: vars.$spacing-xxs vars.$spacing-xs;
+  border-radius: vars.$border-radius-full;
   display: flex;
   align-items: center;
 }
 
 .liveText {
-  font-size: $font-size-xs;
-  font-weight: $font-weight-bold;
+  font-size: vars.$font-size-xs;
+  font-weight: vars.$font-weight-bold;
   color: white;
 }
 
 .viewerCount,
 .duration {
-  font-size: $font-size-sm;
+  font-size: vars.$font-size-sm;
   color: white;
-  font-weight: $font-weight-medium;
+  font-weight: vars.$font-weight-medium;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: $spacing-xxs $spacing-xs;
-  border-radius: $border-radius-full;
+  padding: vars.$spacing-xxs vars.$spacing-xs;
+  border-radius: vars.$border-radius-full;
 }
 
 .infoBar {
   display: flex;
   flex-direction: column;
-  padding: $spacing-md;
-  gap: $spacing-md;
+  padding: vars.$spacing-md;
+  gap: vars.$spacing-md;
   
-  @include md {
+  @include mixins.md {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -99,7 +99,7 @@
 }
 
 .avatar {
-  margin-right: $spacing-md;
+  margin-right: vars.$spacing-md;
   flex-shrink: 0;
 }
 
@@ -114,69 +114,69 @@
 }
 
 .title {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bold;
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-bold;
   color: var(--text-primary);
-  margin: 0 0 $spacing-xxs 0;
-  @include truncate(1);
+  margin: 0 0 vars.$spacing-xxs 0;
+  @include mixins.truncate(1);
   
-  @include md {
-    font-size: $font-size-xl;
+  @include mixins.md {
+    font-size: vars.$font-size-xl;
   }
 }
 
 .streamerName {
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
+  font-size: vars.$font-size-md;
+  font-weight: vars.$font-weight-semibold;
   color: var(--text-primary);
   margin: 0;
-  @include truncate;
+  @include mixins.truncate;
 }
 
 .category {
-  font-size: $font-size-sm;
+  font-size: vars.$font-size-sm;
   color: var(--text-secondary);
-  margin: $spacing-xxs 0 0 0;
-  @include truncate;
+  margin: vars.$spacing-xxs 0 0 0;
+  @include mixins.truncate;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-xs;
+  gap: vars.$spacing-xs;
   
-  @include md {
+  @include mixins.md {
     margin-left: auto;
-    margin-right: $spacing-lg;
+    margin-right: vars.$spacing-lg;
   }
 }
 
 .tag {
   display: inline-block;
-  padding: $spacing-xxs $spacing-sm;
+  padding: vars.$spacing-xxs vars.$spacing-sm;
   background-color: var(--background-tertiary);
-  border-radius: $border-radius-full;
-  font-size: $font-size-xs;
+  border-radius: vars.$border-radius-full;
+  font-size: vars.$font-size-xs;
   color: var(--text-secondary);
 }
 
 .actions {
-  @include md {
+  @include mixins.md {
     flex-shrink: 0;
   }
 }
 
 .watchButton {
-  @include button-primary;
-  padding: $spacing-sm $spacing-xl;
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
+  @include mixins.button-primary;
+  padding: vars.$spacing-sm vars.$spacing-xl;
+  font-size: vars.$font-size-md;
+  font-weight: vars.$font-weight-semibold;
   text-decoration: none;
   display: block;
   width: 100%;
   text-align: center;
   
-  @include md {
+  @include mixins.md {
     width: auto;
   }
 } 

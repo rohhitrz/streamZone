@@ -1,0 +1,108 @@
+// Colors
+$color-primary: #6441a5;
+$color-primary-hover: #7a5bbf;
+$color-background-card: #1f1f23;
+$color-background-dark: #0e0e10;
+$color-background-light: #18181b;
+$color-background-input: #2a2a2d;
+$color-text-primary: #efeff1;
+$color-text-secondary: #adadb8;
+$color-border: #303032;
+
+// Theme colors
+$accent-purple: #9147ff;
+$accent-purple-hover: #772ce8;
+$accent-blue: #00b5ad;
+$accent-red: #f43b47;
+$accent-green: #4caf50;
+$accent-yellow: #ffca28;
+
+// Dark theme
+$dark-bg-primary: #0e0e10;
+$dark-bg-secondary: #1f1f23;
+$dark-bg-tertiary: #18181b;
+$dark-text-primary: #efeff1;
+$dark-text-secondary: #adadb8;
+$dark-border: #303032;
+
+// Light theme (if needed)
+$light-bg-primary: #ffffff;
+$light-bg-secondary: #f7f7f8;
+$light-bg-tertiary: #efeff1;
+$light-text-primary: #0e0e10;
+$light-text-secondary: #53535f;
+$light-border: #e5e5e7;
+
+// Layout
+$header-height: 60px;
+$sidebar-width: 240px;
+$sidebar-width-collapsed: 60px;
+$chat-width: 350px;
+$chat-width-large: 400px;
+
+// Spacing
+$spacing-xxxs: 2px;
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+$spacing-xxxl: 64px;
+
+// Border radius
+$border-radius-xs: 2px;
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-full: 9999px;
+
+// Font sizes
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;
+$font-size-xxxl: 32px;
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Box shadows
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Breakpoints
+$breakpoint-xs: 360px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Container
+$container-max-width: 1320px;
+$container-padding: $spacing-md; 

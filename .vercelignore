@@ -1,0 +1,2 @@
+# Ignore SCSS deprecation warnings
+*.scss @import 

@@ -1,27 +1,27 @@
-@import '../styles/variables.scss';
-@import '../styles/mixins.scss';
+@use '../styles/_variables.scss' as vars;
+@use '../styles/_mixins.scss' as mixins;
 
 .container {
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  padding: $spacing-md;
+  padding: vars.$spacing-md;
 }
 
 .featuredSection {
-  margin-bottom: $spacing-xl;
+  margin-bottom: vars.$spacing-xl;
 }
 
 .liveSection {
-  margin-bottom: $spacing-xl;
+  margin-bottom: vars.$spacing-xl;
 }
 
 .sectionHeader {
   display: flex;
   flex-direction: column;
-  margin-bottom: $spacing-lg;
+  margin-bottom: vars.$spacing-lg;
   
-  @include md {
+  @include mixins.md {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -29,13 +29,13 @@
 }
 
 .sectionTitle {
-  font-size: $font-size-xl;
-  font-weight: $font-weight-bold;
+  font-size: vars.$font-size-xl;
+  font-weight: vars.$font-weight-bold;
   color: var(--text-primary);
-  margin-bottom: $spacing-md;
+  margin-bottom: vars.$spacing-md;
   
-  @include md {
-    font-size: $font-size-xxl;
+  @include mixins.md {
+    font-size: vars.$font-size-xxl;
     margin-bottom: 0;
   }
 }
@@ -44,25 +44,25 @@
   width: 100%;
   max-width: 400px;
   
-  @include md {
+  @include mixins.md {
     width: 300px;
   }
 }
 
 .searchInput {
   width: 100%;
-  padding: $spacing-sm $spacing-md;
+  padding: vars.$spacing-sm vars.$spacing-md;
   background-color: var(--background-secondary);
   border: 1px solid var(--border-color);
-  border-radius: $border-radius-md;
+  border-radius: vars.$border-radius-md;
   color: var(--text-primary);
-  font-size: $font-size-md;
-  transition: border-color $transition-fast, box-shadow $transition-fast;
+  font-size: vars.$font-size-md;
+  transition: border-color vars.$transition-fast, box-shadow vars.$transition-fast;
   
   &:focus {
     outline: none;
-    border-color: $accent-purple;
-    box-shadow: 0 0 0 2px rgba($accent-purple, 0.2);
+    border-color: vars.$accent-purple;
+    box-shadow: 0 0 0 2px rgba(vars.$accent-purple, 0.2);
   }
   
   &::placeholder {
@@ -73,41 +73,41 @@
 .streamerGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-md;
+  gap: vars.$spacing-md;
   
-  @include sm {
+  @include mixins.sm {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  @include md {
+  @include mixins.md {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  @include lg {
+  @include mixins.lg {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  @include xl {
+  @include mixins.xl {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .noResults {
   text-align: center;
-  padding: $spacing-xl;
+  padding: vars.$spacing-xl;
   background-color: var(--background-secondary);
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-md;
+  border-radius: vars.$border-radius-lg;
+  box-shadow: vars.$shadow-md;
   
   p {
-    font-size: $font-size-lg;
+    font-size: vars.$font-size-lg;
     color: var(--text-secondary);
-    margin-bottom: $spacing-md;
+    margin-bottom: vars.$spacing-md;
   }
 }
 
 .resetButton {
-  @include button-primary;
-  font-size: $font-size-md;
-  padding: $spacing-sm $spacing-lg;
+  @include mixins.button-primary;
+  font-size: vars.$font-size-md;
+  padding: vars.$spacing-sm vars.$spacing-lg;
 } 

@@ -1,5 +1,5 @@
-@import './variables.scss';
-@import './mixins.scss';
+@use './_variables.scss' as vars;
+@use './_mixins.scss' as mixins;
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
 
 :root {
@@ -7,11 +7,11 @@
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   
   // Dark mode (default)
-  --background: #{$background-dark};
-  --background-secondary: #{$background-dark-secondary};
-  --background-tertiary: #{$background-dark-tertiary};
-  --text-primary: #{$text-dark};
-  --text-secondary: #{$text-dark-secondary};
+  --background: #{vars.$dark-bg-primary};
+  --background-secondary: #{vars.$dark-bg-secondary};
+  --background-tertiary: #{vars.$dark-bg-tertiary};
+  --text-primary: #{vars.$dark-text-primary};
+  --text-secondary: #{vars.$dark-text-secondary};
   
   // Theme transition
   --transition-theme: background-color 0.3s ease, color 0.3s ease;
@@ -19,11 +19,11 @@
 
 // Light mode
 [data-theme='light'] {
-  --background: #{$background-light};
-  --background-secondary: #{$background-light-secondary};
-  --background-tertiary: #{$background-light-tertiary};
-  --text-primary: #{$text-light};
-  --text-secondary: #{$text-light-secondary};
+  --background: #{vars.$light-bg-primary};
+  --background-secondary: #{vars.$light-bg-secondary};
+  --background-tertiary: #{vars.$light-bg-tertiary};
+  --text-primary: #{vars.$light-text-primary};
+  --text-secondary: #{vars.$light-text-secondary};
 }
 
 * {
@@ -69,7 +69,7 @@ button {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: $border-radius-full;
+  border-radius: vars.$border-radius-full;
   
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
@@ -124,7 +124,7 @@ button {
 }
 
 .container {
-  @include container;
+  @include mixins.container;
 }
 
 // Animations
@@ -153,8 +153,8 @@ button {
 .live-indicator {
   display: inline-flex;
   align-items: center;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-bold;
+  font-size: vars.$font-size-xs;
+  font-weight: vars.$font-weight-bold;
   color: white;
   
   &::before {
@@ -162,8 +162,8 @@ button {
     display: inline-block;
     width: 8px;
     height: 8px;
-    margin-right: $spacing-xxs;
-    background-color: $accent-red;
+    margin-right: vars.$spacing-xxs;
+    background-color: vars.$accent-red;
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
@@ -174,13 +174,13 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $spacing-xxs $spacing-xs;
-  border-radius: $border-radius-full;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-semibold;
+  padding: vars.$spacing-xxs vars.$spacing-xs;
+  border-radius: vars.$border-radius-full;
+  font-size: vars.$font-size-xs;
+  font-weight: vars.$font-weight-semibold;
   
   &--primary {
-    background-color: $accent-purple;
+    background-color: vars.$accent-purple;
     color: white;
   }
   
@@ -192,30 +192,30 @@ button {
 
 // Button sizes
 .btn {
-  @include button-base;
+  @include mixins.button-base;
   
   &--sm {
-    padding: $spacing-xxs $spacing-xs;
-    font-size: $font-size-xs;
+    padding: vars.$spacing-xxs vars.$spacing-xs;
+    font-size: vars.$font-size-xs;
   }
   
   &--lg {
-    padding: $spacing-sm $spacing-lg;
-    font-size: $font-size-md;
+    padding: vars.$spacing-sm vars.$spacing-lg;
+    font-size: vars.$font-size-md;
   }
   
   &--primary {
-    @include button-primary;
+    @include mixins.button-primary;
   }
   
   &--secondary {
-    @include button-secondary;
+    @include mixins.button-secondary;
   }
   
   &--icon {
     width: 36px;
     height: 36px;
     padding: 0;
-    border-radius: $border-radius-full;
+    border-radius: vars.$border-radius-full;
   }
 } 

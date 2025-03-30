@@ -1,30 +1,30 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use '../../styles/_variables.scss' as vars;
+@use '../../styles/_mixins.scss' as mixins;
 
 .categoryTabs {
-  margin-bottom: $spacing-lg;
+  margin-bottom: vars.$spacing-lg;
   overflow-x: auto;
-  @include custom-scrollbar;
+  @include mixins.custom-scrollbar;
 }
 
 .tabsContainer {
   display: flex;
-  gap: $spacing-sm;
-  padding-bottom: $spacing-xs;
+  gap: vars.$spacing-sm;
+  padding-bottom: vars.$spacing-xs;
   min-width: min-content;
 }
 
 .tab {
   position: relative;
-  padding: $spacing-sm $spacing-md;
+  padding: vars.$spacing-sm vars.$spacing-md;
   border: none;
   background-color: var(--background-secondary);
   color: var(--text-secondary);
-  border-radius: $border-radius-md;
+  border-radius: vars.$border-radius-md;
   cursor: pointer;
-  font-size: $font-size-md;
-  font-weight: $font-weight-medium;
-  transition: background-color $transition-fast, color $transition-fast;
+  font-size: vars.$font-size-md;
+  font-weight: vars.$font-weight-medium;
+  transition: background-color vars.$transition-fast, color vars.$transition-fast;
   white-space: nowrap;
   
   &:hover {
@@ -35,7 +35,7 @@
   &.active {
     background-color: var(--background-tertiary);
     color: var(--text-primary);
-    font-weight: $font-weight-semibold;
+    font-weight: vars.$font-weight-semibold;
   }
 }
 
@@ -45,8 +45,8 @@
   left: 0;
   right: 0;
   height: 3px;
-  background-color: $accent-purple;
+  background-color: vars.$accent-purple;
   margin: 0 auto;
   width: 70%;
-  border-radius: $border-radius-full;
+  border-radius: vars.$border-radius-full;
 } 

@@ -1,0 +1,274 @@
+@use './_variables.scss' as vars;
+
+// Breakpoint mixins
+@mixin xs {
+  @media (min-width: vars.$breakpoint-xs) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: vars.$breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: vars.$breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: vars.$breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: vars.$breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: vars.$breakpoint-xxl) {
+    @content;
+  }
+}
+
+// Max-width breakpoint mixins
+@mixin max-xs {
+  @media (max-width: (vars.$breakpoint-xs - 1px)) {
+    @content;
+  }
+}
+
+@mixin max-sm {
+  @media (max-width: (vars.$breakpoint-sm - 1px)) {
+    @content;
+  }
+}
+
+@mixin max-md {
+  @media (max-width: (vars.$breakpoint-md - 1px)) {
+    @content;
+  }
+}
+
+@mixin max-lg {
+  @media (max-width: (vars.$breakpoint-lg - 1px)) {
+    @content;
+  }
+}
+
+@mixin max-xl {
+  @media (max-width: (vars.$breakpoint-xl - 1px)) {
+    @content;
+  }
+}
+
+@mixin max-xxl {
+  @media (max-width: (vars.$breakpoint-xxl - 1px)) {
+    @content;
+  }
+}
+
+// Flexible breakpoint mixin
+@mixin breakpoint($point) {
+  @if $point == mobile {
+    @media (max-width: (vars.$breakpoint-md - 1px)) {
+      @content;
+    }
+  } 
+  @else if $point == tablet {
+    @media (min-width: vars.$breakpoint-md) and (max-width: (vars.$breakpoint-lg - 1px)) {
+      @content;
+    }
+  } 
+  @else if $point == desktop {
+    @media (min-width: vars.$breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+// Flex helpers
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: vars.$spacing-md;
+  padding-right: vars.$spacing-md;
+}
+
+// Grid layouts
+@mixin grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@mixin grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@mixin grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@mixin grid-auto-fill($min-width) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+}
+
+// Text utilities
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Scroll styling
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Animations
+@mixin pulse-animation {
+  @keyframes pulse {
+    0% {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
+  }
+}
+
+@mixin fade-in {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  animation: fadeIn 0.3s ease forwards;
+}
+
+// Button styles
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-weight: vars.$font-weight-medium;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  outline: none;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: vars.$color-primary;
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: darken(vars.$color-primary, 10%);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: transparent;
+  border: 1px solid vars.$color-primary;
+  color: vars.$color-primary;
+  
+  &:hover:not(:disabled) {
+    background-color: rgba(vars.$color-primary, 0.1);
+  }
+} 

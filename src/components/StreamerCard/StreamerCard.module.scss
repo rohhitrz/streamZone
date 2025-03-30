@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use '../../styles/_variables.scss' as vars;
+@use '../../styles/_mixins.scss' as mixins;
 
 .cardWrapper {
   height: 100%;
@@ -13,7 +13,7 @@
 
 .card {
   background-color: var(--background-secondary);
-  border-radius: $border-radius-lg;
+  border-radius: vars.$border-radius-lg;
   overflow: hidden;
   height: 100%;
   transform-style: preserve-3d;
@@ -41,7 +41,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform $transition-normal;
+  transition: transform vars.$transition-normal;
   z-index: 1;
 }
 
@@ -54,60 +54,60 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity $transition-normal;
+  transition: opacity vars.$transition-normal;
   z-index: 0;
 }
 
 .liveIndicator {
   position: absolute;
-  top: $spacing-xs;
-  left: $spacing-xs;
+  top: vars.$spacing-xs;
+  left: vars.$spacing-xs;
   display: flex;
   align-items: center;
-  padding: $spacing-xxs $spacing-xs;
-  background-color: rgba($accent-red, 0.9);
-  border-radius: $border-radius-full;
+  padding: vars.$spacing-xxs vars.$spacing-xs;
+  background-color: rgba(vars.$accent-red, 0.9);
+  border-radius: vars.$border-radius-full;
   z-index: 2;
-  box-shadow: $shadow-sm;
+  box-shadow: vars.$shadow-sm;
 }
 
 .liveText {
-  font-size: $font-size-xs;
-  font-weight: $font-weight-bold;
+  font-size: vars.$font-size-xs;
+  font-weight: vars.$font-weight-bold;
   color: white;
-  margin-right: $spacing-xs;
+  margin-right: vars.$spacing-xs;
 }
 
 .viewerCount {
   display: flex;
   align-items: center;
-  font-size: $font-size-xs;
+  font-size: vars.$font-size-xs;
   color: white;
   opacity: 0.9;
-  margin-right: $spacing-xs;
+  margin-right: vars.$spacing-xs;
 }
 
 .duration {
   display: flex;
   align-items: center;
-  font-size: $font-size-xs;
+  font-size: vars.$font-size-xs;
   color: white;
   opacity: 0.9;
 }
 
 .icon {
-  margin-right: $spacing-xxs;
+  margin-right: vars.$spacing-xxs;
 }
 
 .infoWrapper {
-  padding: $spacing-md;
+  padding: vars.$spacing-md;
   display: flex;
   align-items: flex-start;
 }
 
 .avatar {
   position: relative;
-  margin-right: $spacing-sm;
+  margin-right: vars.$spacing-sm;
   flex-shrink: 0;
 }
 
@@ -123,41 +123,41 @@
 }
 
 .title {
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
+  font-size: vars.$font-size-md;
+  font-weight: vars.$font-weight-semibold;
   color: var(--text-primary);
-  margin: 0 0 $spacing-xxs 0;
-  @include truncate(2);
+  margin: 0 0 vars.$spacing-xxs 0;
+  @include mixins.truncate(2);
 }
 
 .streamerName {
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-medium;
   color: var(--text-primary);
   margin: 0;
-  @include truncate;
+  @include mixins.truncate;
 }
 
 .category {
-  font-size: $font-size-xs;
+  font-size: vars.$font-size-xs;
   color: var(--text-secondary);
-  margin: $spacing-xxs 0;
-  @include truncate;
+  margin: vars.$spacing-xxs 0;
+  @include mixins.truncate;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-xxs;
-  margin-top: $spacing-xs;
+  gap: vars.$spacing-xxs;
+  margin-top: vars.$spacing-xs;
 }
 
 .tag {
   display: inline-block;
-  padding: $spacing-xxs $spacing-xs;
+  padding: vars.$spacing-xxs vars.$spacing-xs;
   background-color: var(--background-tertiary);
-  border-radius: $border-radius-full;
-  font-size: $font-size-xs;
+  border-radius: vars.$border-radius-full;
+  font-size: vars.$font-size-xs;
   color: var(--text-secondary);
 }
 
@@ -165,7 +165,7 @@
   position: absolute;
   bottom: -2px;
   right: -2px;
-  background-color: $accent-red;
+  background-color: vars.$accent-red;
   color: white;
   border-radius: 50%;
   width: 18px;

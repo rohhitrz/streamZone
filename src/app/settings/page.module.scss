@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use '../../styles/_variables.scss' as vars;
+@use '../../styles/_mixins.scss' as mixins;
 
 .settingsPage {
   padding: 2rem;
@@ -7,17 +7,226 @@
   margin: 0 auto;
 }
 
+.settingsHeader {
+  margin-bottom: 2rem;
+}
+
 .pageTitle {
   font-size: 2rem;
+  margin: 0 0 0.5rem;
+  color: vars.$color-text-primary;
+}
+
+.pageDescription {
+  color: vars.$color-text-secondary;
+  font-size: 1rem;
+}
+
+.settingsNavigation {
+  display: flex;
+  border-bottom: 1px solid vars.$color-border;
   margin-bottom: 2rem;
-  color: $color-text-primary;
+  overflow-x: auto;
+  
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: vars.$color-text-secondary;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  
+  &:hover {
+    color: vars.$color-text-primary;
+  }
+  
+  &.active {
+    color: vars.$color-primary;
+    border-bottom-color: vars.$color-primary;
+  }
+}
+
+.settingsContent {
+  min-height: 400px;
+}
+
+.settingsSection {
+  background-color: vars.$color-background-card;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: vars.$color-text-primary;
+}
+
+.sectionDescription {
+  margin-bottom: 1.5rem;
+  color: vars.$color-text-secondary;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+  @include mixins.breakpoint(mobile) {
+    flex-direction: column;
+  }
+}
+
+.formLabel {
+  font-weight: 500;
+  color: vars.$color-text-primary;
+}
+
+.formInput, .formTextarea, .formSelect {
+  padding: 0.75rem 1rem;
+  border: 1px solid vars.$color-border;
+  border-radius: 4px;
+  background-color: vars.$color-background-input;
+  color: vars.$color-text-primary;
+  
+  &:focus {
+    outline: none;
+    border-color: vars.$color-primary;
+  }
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.formSelect {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23adadb8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.formCheckbox {
+  width: 18px;
+  height: 18px;
+  accent-color: vars.$color-primary;
+}
+
+.checkboxLabel {
+  color: vars.$color-text-primary;
+  user-select: none;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancelButton {
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: vars.$color-text-secondary;
+  border: 1px solid vars.$color-border;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: rgba(vars.$color-border, 0.1);
+    color: vars.$color-text-primary;
+  }
+}
+
+.saveButton {
+  padding: 0.75rem 1.5rem;
+  background-color: vars.$color-primary;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: #772ce8;
+  }
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.dangerZone {
+  border: 1px solid #f44336;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.dangerTitle {
+  color: #f44336;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.dangerDescription {
+  color: vars.$color-text-secondary;
+  margin-bottom: 1.5rem;
+}
+
+.deleteButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: darken(#f44336, 10%);
+  }
 }
 
 .settingsContainer {
   display: flex;
   gap: 2rem;
   
-  @include breakpoint(mobile) {
+  @include mixins.breakpoint(mobile) {
     flex-direction: column;
   }
 }
@@ -26,7 +235,7 @@
   width: 250px;
   flex-shrink: 0;
   
-  @include breakpoint(mobile) {
+  @include mixins.breakpoint(mobile) {
     width: 100%;
     display: flex;
     overflow-x: auto;
@@ -46,13 +255,13 @@
   background: none;
   border: none;
   border-radius: 8px;
-  color: $color-text-secondary;
+  color: vars.$color-text-secondary;
   cursor: pointer;
   transition: all 0.2s;
   margin-bottom: 0.5rem;
   text-align: left;
   
-  @include breakpoint(mobile) {
+  @include mixins.breakpoint(mobile) {
     margin-right: 0.5rem;
     margin-bottom: 0;
     white-space: nowrap;
@@ -60,119 +269,18 @@
   }
   
   &:hover {
-    background-color: rgba($color-primary, 0.1);
-    color: $color-primary;
+    background-color: rgba(vars.$color-primary, 0.1);
+    color: vars.$color-primary;
   }
   
   &.active {
-    background-color: rgba($color-primary, 0.1);
-    color: $color-primary;
+    background-color: rgba(vars.$color-primary, 0.1);
+    color: vars.$color-primary;
     font-weight: 500;
   }
   
   .buttonIcon {
     margin-right: 0.75rem;
-  }
-}
-
-.settingsContent {
-  flex: 1;
-}
-
-.section {
-  background-color: $color-background-card;
-  border-radius: 8px;
-  padding: 2rem;
-  
-  @include breakpoint(mobile) {
-    padding: 1.5rem;
-  }
-}
-
-.sectionTitle {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-  color: $color-text-primary;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.formLabel {
-  font-weight: 500;
-  color: $color-text-primary;
-}
-
-.formInput, .formTextarea {
-  padding: 0.75rem 1rem;
-  border: 1px solid $color-border;
-  border-radius: 4px;
-  background-color: $color-background-input;
-  color: $color-text-primary;
-  
-  &:focus {
-    outline: none;
-    border-color: $color-primary;
-  }
-}
-
-.formTextarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.formHelp {
-  color: $color-text-secondary;
-  font-size: 0.875rem;
-  margin: 0.25rem 0 0;
-}
-
-.saveButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  background-color: $color-primary;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  align-self: flex-start;
-  
-  &:hover {
-    background-color: darken($color-primary, 10%);
-  }
-  
-  .buttonIcon {
-    margin-right: 0.5rem;
-  }
-}
-
-.secondaryButton {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: transparent;
-  color: $color-primary;
-  border: 1px solid $color-primary;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  
-  &:hover {
-    background-color: rgba($color-primary, 0.1);
   }
 }
 
@@ -188,7 +296,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: $color-background-light;
+  background-color: vars.$color-background-light;
   border-radius: 8px;
 }
 
@@ -199,12 +307,12 @@
 .notificationTitle {
   margin: 0 0 0.25rem;
   font-size: 1.125rem;
-  color: $color-text-primary;
+  color: vars.$color-text-primary;
 }
 
 .notificationDescription {
   margin: 0;
-  color: $color-text-secondary;
+  color: vars.$color-text-secondary;
   font-size: 0.875rem;
 }
 
@@ -220,7 +328,7 @@
     height: 0;
     
     &:checked + .slider {
-      background-color: $color-primary;
+      background-color: vars.$color-primary;
     }
     
     &:checked + .slider:before {
@@ -235,7 +343,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $color-border;
+    background-color: vars.$color-border;
     transition: .4s;
     border-radius: 24px;
     
@@ -262,7 +370,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: $color-background-light;
+  background-color: vars.$color-background-light;
   border-radius: 8px;
   margin-bottom: 1.5rem;
 }
@@ -274,12 +382,12 @@
 .themeTitle {
   margin: 0 0 0.25rem;
   font-size: 1.125rem;
-  color: $color-text-primary;
+  color: vars.$color-text-primary;
 }
 
 .themeDescription {
   margin: 0;
-  color: $color-text-secondary;
+  color: vars.$color-text-secondary;
   font-size: 0.875rem;
 }
 
@@ -342,19 +450,19 @@
 .securityOptions {
   margin: 2rem 0;
   padding: 1.5rem;
-  background-color: $color-background-light;
+  background-color: vars.$color-background-light;
   border-radius: 8px;
 }
 
 .subSectionTitle {
   margin: 0 0 0.75rem;
   font-size: 1.125rem;
-  color: $color-text-primary;
+  color: vars.$color-text-primary;
 }
 
 .securityDescription {
   margin: 0 0 1.5rem;
-  color: $color-text-secondary;
+  color: vars.$color-text-secondary;
   font-size: 0.875rem;
   line-height: 1.5;
 } 

@@ -28,13 +28,25 @@ export default function StreamPlayer({ streamer }: StreamPlayerProps) {
   useEffect(() => {
     setIsClient(true);
     
+    // Check if the user has already followed/subscribed from localStorage
+    const followedStreamers = localStorage.getItem('followed-streamers') 
+      ? JSON.parse(localStorage.getItem('followed-streamers') || '[]') 
+      : [];
+    
+    const subscribedStreamers = localStorage.getItem('subscribed-streamers') 
+      ? JSON.parse(localStorage.getItem('subscribed-streamers') || '[]') 
+      : [];
+    
+    setIsFollowing(followedStreamers.includes(streamer.id));
+    setIsSubscribed(subscribedStreamers.includes(streamer.id));
+    
     // Hide controls after 3 seconds of inactivity
     const timer = setTimeout(() => {
       setShowControls(false);
     }, 3000);
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [streamer.id]);
   
   const handleMouseMove = () => {
     setShowControls(true);
@@ -56,11 +68,37 @@ export default function StreamPlayer({ streamer }: StreamPlayerProps) {
   };
   
   const toggleFollow = () => {
-    setIsFollowing(!isFollowing);
+    const newFollowingState = !isFollowing;
+    setIsFollowing(newFollowingState);
+    
+    // Save to localStorage
+    const followedStreamers = localStorage.getItem('followed-streamers') 
+      ? JSON.parse(localStorage.getItem('followed-streamers') || '[]') 
+      : [];
+    
+    if (newFollowingState) {
+      localStorage.setItem('followed-streamers', JSON.stringify([...followedStreamers, streamer.id]));
+    } else {
+      localStorage.setItem('followed-streamers', 
+        JSON.stringify(followedStreamers.filter((id: string) => id !== streamer.id)));
+    }
   };
   
   const toggleSubscribe = () => {
-    setIsSubscribed(!isSubscribed);
+    const newSubscribedState = !isSubscribed;
+    setIsSubscribed(newSubscribedState);
+    
+    // Save to localStorage
+    const subscribedStreamers = localStorage.getItem('subscribed-streamers') 
+      ? JSON.parse(localStorage.getItem('subscribed-streamers') || '[]') 
+      : [];
+    
+    if (newSubscribedState) {
+      localStorage.setItem('subscribed-streamers', JSON.stringify([...subscribedStreamers, streamer.id]));
+    } else {
+      localStorage.setItem('subscribed-streamers', 
+        JSON.stringify(subscribedStreamers.filter((id: string) => id !== streamer.id)));
+    }
   };
   
   const handleQualityChange = (quality: StreamQuality) => {
@@ -98,6 +136,25 @@ export default function StreamPlayer({ streamer }: StreamPlayerProps) {
         className={styles.reactPlayer}
       />
       
+      <div className={styles.actionButtons}>
+        <button 
+          className={`${styles.actionButton} ${isFollowing ? styles.followed : ''}`}
+          onClick={toggleFollow}
+          aria-label={isFollowing ? 'Unfollow' : 'Follow'}
+        >
+          <FiHeart size={16} />
+          <span>{isFollowing ? 'Following' : 'Follow'}</span>
+        </button>
+        
+        <button 
+          className={`${styles.actionButton} ${styles.subscribeButton} ${isSubscribed ? styles.subscribed : ''}`}
+          onClick={toggleSubscribe}
+          aria-label={isSubscribed ? 'Subscribed' : 'Subscribe'}
+        >
+          <span>{isSubscribed ? 'Subscribed' : 'Subscribe'}</span>
+        </button>
+      </div>
+      
       <AnimatePresence>
         {showControls && (
           <motion.div 
@@ -109,7 +166,7 @@ export default function StreamPlayer({ streamer }: StreamPlayerProps) {
           >
             <div className={styles.topControls}>
               <div className={styles.streamerInfo}>
-                <span className={styles.streamTitle}>{streamer.title}</span>
+                <span className={styles.streamTitle}>{stream.title || streamer.title}</span>
                 <span className={styles.streamerName}>{streamer.displayName}</span>
               </div>
               
@@ -197,31 +254,31 @@ export default function StreamPlayer({ streamer }: StreamPlayerProps) {
                 </button>
               </div>
             </div>
+            
+            <div className={styles.tags}>
+              {stream.tags?.map((tag, index) => (
+                <span key={index} className={styles.tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
       
-      <div className={styles.actionButtons}>
-        <button 
-          className={`${styles.actionButton} ${isFollowing ? styles.followed : ''}`}
-          onClick={toggleFollow}
-        >
-          <FiHeart size={18} />
-          <span>{isFollowing ? 'Following' : 'Follow'}</span>
-        </button>
+      {/* Create a dedicated info bar for language, FPS, category */}
+      <div className={styles.playerInfoBar}>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <span style={{ color: 'white' }}>English</span>
+          <span style={{ color: 'white' }}>FPS</span>
+          {streamer.category && (
+            <span style={{ color: 'white' }}>{streamer.category}</span>
+          )}
+        </div>
         
-        <button 
-          className={`${styles.actionButton} ${styles.subscribeButton} ${isSubscribed ? styles.subscribed : ''}`}
-          onClick={toggleSubscribe}
-        >
-          <span>{isSubscribed ? 'Subscribed' : 'Subscribe'}</span>
-        </button>
-      </div>
-      
-      <div className={styles.tags}>
-        {streamer.tags.map(tag => (
-          <span key={tag} className={styles.tag}>{tag}</span>
-        ))}
+        <div>
+          <span style={{ color: 'white' }}>Auto</span>
+        </div>
       </div>
     </div>
   );
