@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.followingContainer {
+  padding: $spacing-md;
+}
+
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-lg;
+  color: var(--text-primary);
+}
+
+.streamersGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: $spacing-md;
+  
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.streamerCard {
+  width: 100%;
+  min-height: 100%;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.emptyStateContent {
+  text-align: center;
+  padding: $spacing-xl;
+  background-color: var(--background-secondary);
+  border-radius: $border-radius-lg;
+  max-width: 500px;
+  box-shadow: $shadow-md;
+  
+  h2 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-md;
+    color: var(--text-primary);
+  }
+  
+  p {
+    font-size: $font-size-md;
+    color: var(--text-secondary);
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.discoverButton {
+  @include button-primary;
+  font-size: $font-size-md;
+  padding: $spacing-sm $spacing-lg;
+} 

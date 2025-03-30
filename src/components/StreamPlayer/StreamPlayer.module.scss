@@ -1,0 +1,301 @@
+@use 'sass:color';
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.playerContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+  background-color: black;
+  overflow: hidden;
+
+  @include lg {
+    height: 100%;
+    padding-bottom: 0;
+  }
+}
+
+.reactPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.loadingContainer {
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  min-height: 300px;
+}
+
+.controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $spacing-md;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 10; // Ensure controls are above other elements
+}
+
+.topControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; // Allow wrapping on smaller screens
+  gap: $spacing-sm; // Space between wrapped elements
+}
+
+.bottomControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; // Allow wrapping on smaller screens
+  gap: $spacing-sm; // Space between wrapped elements
+}
+
+.leftControls,
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-wrap: wrap; // Allow wrapping on smaller screens
+}
+
+.streamerInfo {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%; // Prevent extremely long titles from taking up too much space
+  
+  @include max-md {
+    max-width: 100%; // On small screens allow full width
+  }
+}
+
+.streamTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin-bottom: $spacing-xxs;
+  @include truncate; // Truncate long titles
+}
+
+.streamerName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  @include truncate; // Truncate long names
+}
+
+.viewerInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-full;
+  white-space: nowrap; // Prevent wrapping within the viewer info
+}
+
+.duration {
+  margin-left: $spacing-xs;
+  padding-left: $spacing-xs;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.controlButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  white-space: nowrap; // Prevent wrapping within buttons
+  z-index: 11; // Ensure buttons are clickable
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  
+  @include max-sm {
+    width: 60px; // Smaller on mobile
+  }
+}
+
+.volumeSlider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: $border-radius-full;
+  outline: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.qualityControl {
+  position: relative;
+}
+
+.qualityMenu {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  min-width: 120px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: $border-radius-md;
+  margin-bottom: $spacing-xs;
+  overflow: hidden;
+  z-index: 12; // Ensure dropdown appears above other elements
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: $spacing-xs $spacing-sm;
+    color: white;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.active {
+      background-color: rgba($accent-purple, 0.5);
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+.shareButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: $spacing-xs;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11; // Ensure buttons are clickable
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.actionButtons {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  display: flex;
+  gap: $spacing-sm;
+  z-index: 12; // Ensure buttons are clickable and above other elements
+}
+
+.actionButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  white-space: nowrap; // Prevent wrapping within buttons
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  &.followed {
+    color: $accent-red;
+  }
+
+  &.subscribeButton {
+    background-color: $accent-purple;
+
+    &:hover {
+      background-color: $accent-purple-hover;
+    }
+
+    &.subscribed {
+      background-color: color.adjust($accent-purple, $lightness: -10%);
+    }
+  }
+}
+
+.tags {
+  position: absolute;
+  bottom: $spacing-lg;
+  left: $spacing-md;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  z-index: 11; // Ensure elements are clickable
+  max-width: 70%; // Prevent taking up too much space
+}
+
+.tag {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: $spacing-xxs $spacing-xs;
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+} 

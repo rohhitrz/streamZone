@@ -1,0 +1,71 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.streamPage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 60px);
+  
+  @include lg {
+    flex-direction: row;
+  }
+}
+
+.streamContainer {
+  flex: 1;
+  overflow: hidden;
+  background-color: black;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  
+  @include lg {
+    height: 100%;
+    width: calc(100% - 350px);
+  }
+  
+  @include xl {
+    width: calc(100% - 400px);
+  }
+}
+
+.chatContainer {
+  width: 100%;
+  height: 350px;
+  background-color: var(--background-secondary);
+  
+  @include lg {
+    width: 350px;
+    height: 100%;
+    flex: 0 0 350px;
+    border-left: 1px solid var(--background-tertiary);
+  }
+  
+  @include xl {
+    width: 400px;
+    flex: 0 0 400px;
+  }
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: $spacing-xl;
+  text-align: center;
+  
+  h1 {
+    font-size: $font-size-xxl;
+    color: var(--text-primary);
+    margin-bottom: $spacing-md;
+  }
+  
+  p {
+    font-size: $font-size-md;
+    color: var(--text-secondary);
+    max-width: 500px;
+  }
+} 

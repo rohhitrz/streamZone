@@ -1,0 +1,52 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.categoryTabs {
+  margin-bottom: $spacing-lg;
+  overflow-x: auto;
+  @include custom-scrollbar;
+}
+
+.tabsContainer {
+  display: flex;
+  gap: $spacing-sm;
+  padding-bottom: $spacing-xs;
+  min-width: min-content;
+}
+
+.tab {
+  position: relative;
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  background-color: var(--background-secondary);
+  color: var(--text-secondary);
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  transition: background-color $transition-fast, color $transition-fast;
+  white-space: nowrap;
+  
+  &:hover {
+    background-color: var(--background-tertiary);
+    color: var(--text-primary);
+  }
+  
+  &.active {
+    background-color: var(--background-tertiary);
+    color: var(--text-primary);
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: $accent-purple;
+  margin: 0 auto;
+  width: 70%;
+  border-radius: $border-radius-full;
+} 

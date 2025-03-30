@@ -1,0 +1,99 @@
+// Colors - Dark Theme (Default)
+$background-dark: #0e0e10;
+$background-dark-secondary: #18181b;
+$background-dark-tertiary: #1f1f23;
+$text-dark: #efeff1;
+$text-dark-secondary: #adadb8;
+$accent-purple: #9147ff;
+$accent-purple-hover: #772ce8;
+$accent-red: #ff0000;
+$accent-green: #00ff7f;
+$accent-blue: #00b5ff;
+
+// New color variables for components
+$color-primary: #9147ff;
+$color-background-card: #1f1f23;
+$color-background-dark: #0e0e10;
+$color-background-light: #2b2b35;
+$color-background-input: #18181b;
+$color-text-primary: #efeff1;
+$color-text-secondary: #adadb8;
+$color-border: #303030;
+
+// Colors - Light Theme
+$background-light: #f7f7f8;
+$background-light-secondary: #ffffff;
+$background-light-tertiary: #f0f0f0;
+$text-light: #0e0e10;
+$text-light-secondary: #53535f;
+
+// Layout
+$sidebar-width: 240px;
+
+// Spacing
+$spacing-xxs: 0.25rem; // 4px
+$spacing-xs: 0.5rem;   // 8px
+$spacing-sm: 0.75rem;  // 12px
+$spacing-md: 1rem;     // 16px
+$spacing-lg: 1.5rem;   // 24px
+$spacing-xl: 2rem;     // 32px
+$spacing-xxl: 2.5rem;  // 40px
+
+// Border Radius
+$border-radius-sm: 0.25rem;  // 4px
+$border-radius-md: 0.5rem;   // 8px
+$border-radius-lg: 0.75rem;  // 12px
+$border-radius-xl: 1rem;     // 16px
+$border-radius-full: 9999px; // Fully rounded borders
+
+// Font Sizes
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-md: 1rem;      // 16px
+$font-size-lg: 1.125rem;  // 18px
+$font-size-xl: 1.25rem;   // 20px
+$font-size-xxl: 1.5rem;   // 24px
+$font-size-2xl: 1.75rem;  // 28px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2.25rem;  // 36px
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Box Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 300ms ease;
+$transition-slow: 500ms ease;
+
+// Container
+$container-padding: 1rem;
+$container-width-sm: $breakpoint-sm;
+$container-width-md: $breakpoint-md;
+$container-width-lg: $breakpoint-lg;
+$container-width-xl: $breakpoint-xl;
+$container-width-2xl: $breakpoint-2xl; 

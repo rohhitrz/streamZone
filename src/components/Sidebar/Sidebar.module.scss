@@ -1,0 +1,175 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  background-color: var(--background-secondary);
+  border-right: 1px solid var(--background-tertiary);
+  display: flex;
+  flex-direction: column;
+  transition: width $transition-normal;
+  overflow: hidden;
+  z-index: 20;
+  
+  @include max-lg {
+    display: none;
+  }
+  
+  &.collapsed {
+    width: 60px;
+  }
+}
+
+.header {
+  @include flex-between;
+  padding: $spacing-md;
+  border-bottom: 1px solid var(--background-tertiary);
+}
+
+.title {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.toggleButton {
+  @include flex-center;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+.streamerList {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-xs 0;
+  @include custom-scrollbar;
+}
+
+.streamerLink {
+  display: flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-md;
+  text-decoration: none;
+  transition: background-color $transition-fast;
+  
+  &:hover {
+    background-color: var(--background-tertiary);
+  }
+}
+
+.streamerAvatar {
+  margin-right: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.liveBadge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: $accent-red;
+  border-radius: 50%;
+  border: 2px solid var(--background-secondary);
+  animation: pulse 2s infinite;
+}
+
+.streamerInfo {
+  @include flex-column;
+  overflow: hidden;
+  flex: 1;
+}
+
+.streamerName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  @include truncate;
+}
+
+.streamerGame {
+  font-size: $font-size-xs;
+  color: var(--text-secondary);
+  @include truncate;
+  margin-top: 2px;
+}
+
+.viewerCount {
+  font-size: $font-size-xs;
+  color: $accent-red;
+  @include truncate;
+  margin-top: 2px;
+}
+
+.footer {
+  padding: $spacing-md;
+  border-top: 1px solid var(--background-tertiary);
+}
+
+.footerTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: var(--text-secondary);
+  margin: 0 0 $spacing-sm 0;
+}
+
+.recommendedList {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.recommendedLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.recommendedAvatar {
+  margin-right: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.recommendedInfo {
+  @include flex-column;
+  overflow: hidden;
+}
+
+.recommendedName {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: var(--text-primary);
+  @include truncate;
+}
+
+.recommendedGame {
+  font-size: $font-size-xs;
+  color: var(--text-secondary);
+  @include truncate;
+} 

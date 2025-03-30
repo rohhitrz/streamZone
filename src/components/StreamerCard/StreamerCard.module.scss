@@ -1,0 +1,178 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.cardWrapper {
+  height: 100%;
+}
+
+.link {
+  text-decoration: none;
+  height: 100%;
+  display: block;
+}
+
+.card {
+  background-color: var(--background-secondary);
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  
+  &:hover {
+    .thumbnail {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.thumbnailWrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+  overflow: hidden;
+}
+
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $transition-normal;
+  z-index: 1;
+}
+
+.bannerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity $transition-normal;
+  z-index: 0;
+}
+
+.liveIndicator {
+  position: absolute;
+  top: $spacing-xs;
+  left: $spacing-xs;
+  display: flex;
+  align-items: center;
+  padding: $spacing-xxs $spacing-xs;
+  background-color: rgba($accent-red, 0.9);
+  border-radius: $border-radius-full;
+  z-index: 2;
+  box-shadow: $shadow-sm;
+}
+
+.liveText {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: white;
+  margin-right: $spacing-xs;
+}
+
+.viewerCount {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-xs;
+  color: white;
+  opacity: 0.9;
+  margin-right: $spacing-xs;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-xs;
+  color: white;
+  opacity: 0.9;
+}
+
+.icon {
+  margin-right: $spacing-xxs;
+}
+
+.infoWrapper {
+  padding: $spacing-md;
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar {
+  position: relative;
+  margin-right: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.avatarImage {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--background-primary);
+}
+
+.streamerInfo {
+  flex: 1;
+  overflow: hidden;
+}
+
+.title {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  margin: 0 0 $spacing-xxs 0;
+  @include truncate(2);
+}
+
+.streamerName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: var(--text-primary);
+  margin: 0;
+  @include truncate;
+}
+
+.category {
+  font-size: $font-size-xs;
+  color: var(--text-secondary);
+  margin: $spacing-xxs 0;
+  @include truncate;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xxs;
+  margin-top: $spacing-xs;
+}
+
+.tag {
+  display: inline-block;
+  padding: $spacing-xxs $spacing-xs;
+  background-color: var(--background-tertiary);
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  color: var(--text-secondary);
+}
+
+.followingBadge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background-color: $accent-red;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  border: 2px solid var(--background-secondary);
+} 

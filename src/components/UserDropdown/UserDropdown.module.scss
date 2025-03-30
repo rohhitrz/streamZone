@@ -1,0 +1,95 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.userDropdown {
+  position: relative;
+}
+
+.userButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.userAvatar {
+  border-radius: 50%;
+  border: 2px solid $accent-purple;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 220px;
+  background-color: var(--background-secondary);
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-lg;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--background-tertiary);
+}
+
+.menuAvatar {
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.userDetails {
+  margin-left: $spacing-md;
+  overflow: hidden;
+}
+
+.userName {
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  margin-bottom: $spacing-xxs;
+  @include truncate;
+}
+
+.userEmail {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  @include truncate;
+}
+
+.dropdownItems {
+  padding: $spacing-xs 0;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: $font-size-md;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: var(--hover-overlay);
+  }
+}
+
+.itemIcon {
+  margin-right: $spacing-sm;
+  font-size: $font-size-md;
+  flex-shrink: 0;
+} 

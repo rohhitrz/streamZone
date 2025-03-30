@@ -1,0 +1,113 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: $spacing-md;
+}
+
+.featuredSection {
+  margin-bottom: $spacing-xl;
+}
+
+.liveSection {
+  margin-bottom: $spacing-xl;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-lg;
+  
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.sectionTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: var(--text-primary);
+  margin-bottom: $spacing-md;
+  
+  @include md {
+    font-size: $font-size-xxl;
+    margin-bottom: 0;
+  }
+}
+
+.searchContainer {
+  width: 100%;
+  max-width: 400px;
+  
+  @include md {
+    width: 300px;
+  }
+}
+
+.searchInput {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: $border-radius-md;
+  color: var(--text-primary);
+  font-size: $font-size-md;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: $accent-purple;
+    box-shadow: 0 0 0 2px rgba($accent-purple, 0.2);
+  }
+  
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+.streamerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @include xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.noResults {
+  text-align: center;
+  padding: $spacing-xl;
+  background-color: var(--background-secondary);
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  
+  p {
+    font-size: $font-size-lg;
+    color: var(--text-secondary);
+    margin-bottom: $spacing-md;
+  }
+}
+
+.resetButton {
+  @include button-primary;
+  font-size: $font-size-md;
+  padding: $spacing-sm $spacing-lg;
+} 

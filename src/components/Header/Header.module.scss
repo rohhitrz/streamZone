@@ -1,0 +1,191 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-sticky;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--background-tertiary);
+  height: 60px;
+  transition: var(--transition-theme);
+}
+
+.container {
+  @include container;
+  @include flex-between;
+  height: 100%;
+}
+
+.logoWrapper {
+  @include flex-center;
+  gap: $spacing-lg;
+}
+
+.logo {
+  @include flex-center;
+  text-decoration: none;
+}
+
+.logoText {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  background: linear-gradient(90deg, $accent-purple 0%, $accent-blue 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.desktopNav {
+  display: none;
+  gap: $spacing-md;
+  
+  @include md {
+    display: flex;
+  }
+}
+
+.navLink {
+  padding: $spacing-xs $spacing-sm;
+  font-weight: $font-weight-medium;
+  color: var(--text-secondary);
+  transition: color $transition-fast;
+  position: relative;
+  
+  &:hover {
+    color: var(--text-primary);
+  }
+  
+  &.active {
+    color: var(--text-primary);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $accent-purple;
+    }
+  }
+}
+
+.searchWrapper {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 $spacing-md;
+  
+  @include max-md {
+    display: none;
+  }
+}
+
+.searchForm {
+  position: relative;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  height: 36px;
+  padding: 0 $spacing-xs 0 $spacing-xl;
+  border-radius: $border-radius-full;
+  border: none;
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  font-size: $font-size-sm;
+  outline: none;
+  transition: all $transition-fast;
+  
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($accent-purple, 0.5);
+  }
+  
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+.searchButton {
+  position: absolute;
+  left: $spacing-xs;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions {
+  @include flex-center;
+  gap: $spacing-sm;
+}
+
+.themeToggle,
+.profileButton,
+.menuButton {
+  @include flex-center;
+  width: 36px;
+  height: 36px;
+  border-radius: $border-radius-full;
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  border: none;
+  transition: all $transition-fast;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba($accent-purple, 0.2);
+  }
+}
+
+.menuButton {
+  @include md {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--background-tertiary);
+  padding: $spacing-md;
+  box-shadow: $shadow-md;
+  
+  @include md {
+    display: none;
+  }
+}
+
+.mobileNav {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.mobileNavLink {
+  padding: $spacing-sm;
+  font-weight: $font-weight-medium;
+  color: var(--text-secondary);
+  transition: color $transition-fast;
+  border-radius: $border-radius-md;
+  
+  &:hover {
+    color: var(--text-primary);
+    background-color: var(--background-tertiary);
+  }
+  
+  &.active {
+    color: $accent-purple;
+    background-color: rgba($accent-purple, 0.1);
+  }
+} 

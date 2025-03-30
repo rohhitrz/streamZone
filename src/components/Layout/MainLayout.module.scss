@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.main {
+  flex: 1;
+  padding: $spacing-md;
+  margin-left: 0;
+  transition: margin-left $transition-normal;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  
+  @include lg {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+  }
+  
+  // Width adjusted for expanded sidebar at larger screens
+  // 240px is the width of the expanded sidebar
+  @include xl {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+  }
+} 

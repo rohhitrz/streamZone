@@ -1,0 +1,182 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.container {
+  width: 100%;
+  border-radius: $border-radius-xl;
+  overflow: hidden;
+  background-color: var(--background-secondary);
+  margin-bottom: $spacing-lg;
+  box-shadow: $shadow-lg;
+}
+
+.playerWrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+  overflow: hidden;
+}
+
+.reactPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: $spacing-md;
+  left: $spacing-md;
+  background: linear-gradient(90deg, $accent-purple 0%, $accent-blue 100%);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-md;
+  z-index: 1;
+  
+  span {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+.liveInfo {
+  position: absolute;
+  bottom: $spacing-md;
+  left: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  z-index: 1;
+}
+
+.liveIndicator {
+  background-color: $accent-red;
+  padding: $spacing-xxs $spacing-xs;
+  border-radius: $border-radius-full;
+  display: flex;
+  align-items: center;
+}
+
+.liveText {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: white;
+}
+
+.viewerCount,
+.duration {
+  font-size: $font-size-sm;
+  color: white;
+  font-weight: $font-weight-medium;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: $spacing-xxs $spacing-xs;
+  border-radius: $border-radius-full;
+}
+
+.infoBar {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-md;
+  gap: $spacing-md;
+  
+  @include md {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.streamerLink {
+  text-decoration: none;
+  flex: 1;
+}
+
+.streamerInfo {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-right: $spacing-md;
+  flex-shrink: 0;
+}
+
+.avatarImage {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.textInfo {
+  flex: 1;
+  overflow: hidden;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: var(--text-primary);
+  margin: 0 0 $spacing-xxs 0;
+  @include truncate(1);
+  
+  @include md {
+    font-size: $font-size-xl;
+  }
+}
+
+.streamerName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  margin: 0;
+  @include truncate;
+}
+
+.category {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  margin: $spacing-xxs 0 0 0;
+  @include truncate;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  
+  @include md {
+    margin-left: auto;
+    margin-right: $spacing-lg;
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: $spacing-xxs $spacing-sm;
+  background-color: var(--background-tertiary);
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  color: var(--text-secondary);
+}
+
+.actions {
+  @include md {
+    flex-shrink: 0;
+  }
+}
+
+.watchButton {
+  @include button-primary;
+  padding: $spacing-sm $spacing-xl;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+  
+  @include md {
+    width: auto;
+  }
+} 
